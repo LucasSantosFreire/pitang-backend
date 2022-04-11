@@ -1,20 +1,19 @@
 import Joi from "joi";
 
 //Workaround to make prisma work with "type": "module"
-import Prisma from '@prisma/client'
-const { PrismaClient } = Prisma
+import prismaClient from "../prisma.js";
 
 class AppointmentController {
 
     async store (req, res){
-        const { name, birthdate, appointmentDate } = req.body;
+        const {name, birthdate, appointmentDate} = req.body;
 
-        const Appointment = await PrismaClient.Appointment.create({
+        const Appointment = await prismaClient.Appointments.create({
             data: {
-              name,
-              birthdate,
-              appointmentDate
-            },
+                name,
+                birthdate : new Date(birthdate),
+                appointmentDate : new Date(appointmentDate)
+            }
         })
         res.json(Appointment);
     }
