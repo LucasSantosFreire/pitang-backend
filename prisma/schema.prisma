@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User{
+model Appointments{
   id  String @id @default(uuid())
   name String
   birthdate DateTime
