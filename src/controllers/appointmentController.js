@@ -1,3 +1,4 @@
+
 import Joi from "joi";
 
 //Workaround to make prisma work with "type": "module"
@@ -15,7 +16,11 @@ class AppointmentController {
                 appointmentDate : new Date(appointmentDate)
             }
         })
-        res.json(Appointment);
+        return res.json(Appointment);
+    }
+
+    async index (req, res){
+        
     }
 }
 
