@@ -8,12 +8,17 @@ class AppointmentController {
 
     async store (req, res){
         const {name, birthdate, appointmentDate} = req.body;
+        const date = new Date(appointmentDate);
 
         const Appointment = await prismaClient.Appointments.create({
             data: {
                 name,
-                birthdate : new Date(birthdate),
-                appointmentDate : new Date(appointmentDate)
+                birthdate,
+                appointmentDate,
+                year : date.getFullYear(),
+                month : date.getMonth(),
+                day : date.getDate(),
+                hour : date.getHours()
             }
         })
         return res.json(Appointment);
