@@ -21,7 +21,9 @@ class AppointmentController {
     }
 
     async index (req, res){
-        
+        const registries = await prismaClient.Appointments.findMany();
+
+        return res.json(registries);
     }
 }
 
