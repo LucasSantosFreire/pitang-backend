@@ -15,10 +15,6 @@ model Appointments{
   name String
   birthdate DateTime
   appointmentDate DateTime
-  year Int
-  month Int
-  day Int
-  hour Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

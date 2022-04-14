@@ -14,11 +14,7 @@ class AppointmentController {
             data: {
                 name,
                 birthdate,
-                appointmentDate,
-                year : date.getFullYear(),
-                month : date.getMonth(),
-                day : date.getDate(),
-                hour : date.getHours()
+                appointmentDate
             }
         })
         return res.json(Appointment);
