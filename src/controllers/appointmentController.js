@@ -16,11 +16,11 @@ class AppointmentController {
         return res.json(Appointment);
     }
 
-    /* async index (req, res){
-        const registries = await prismaClient.Appointments.findMany();
+    async index (req, res){
+        const appointments = await prismaClient.Appointments.findMany();
 
-        return res.json(registries);
-    } */
+        return res.json(appointments);
+    }
 }
 
 export default AppointmentController;
