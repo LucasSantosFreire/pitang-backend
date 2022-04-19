@@ -29,7 +29,8 @@ class AppointmentController {
             select: {
                 name: true,
                 birthdate: true,
-                appointmentDate: true
+                appointmentDate: true,
+                status: true
               },
         });
 
