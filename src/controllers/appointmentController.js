@@ -25,7 +25,13 @@ class AppointmentController {
 
     async index (req, res){
         /*alterar parametros buscados depois*/
-        const appointments = await prismaClient.Appointments.findMany();
+        const appointments = await prismaClient.Appointments.findMany({
+            select: {
+                name: true,
+                birthdate: true,
+                appointmentDate: true
+              },
+        });
 
         return res.json(appointments);
     }
