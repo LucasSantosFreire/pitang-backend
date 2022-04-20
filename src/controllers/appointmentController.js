@@ -55,7 +55,7 @@ class AppointmentController {
     catch (e){
         return res.json(e.meta.cause)
     }
-      return res.json(updateStatus)
+      return res.json({"message" : "Status do usuário atualizado com sucesso."})
     }
 
     async deleteAppointment (req, res){
@@ -71,7 +71,7 @@ class AppointmentController {
         catch (e){
             return res.json(e.meta.cause)
         }
-        return res.json(deletedAppointment)
+        return res.json({"message" : "Usuário foi deletado com sucesso"})
     }
 }
 
