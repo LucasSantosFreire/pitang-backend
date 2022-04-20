@@ -26,6 +26,7 @@ class AppointmentController {
     async index (req, res){
         const appointments = await prismaClient.Appointments.findMany({
             select: {
+                id: true,
                 name: true,
                 birthdate: true,
                 appointmentDate: true,
@@ -37,6 +38,40 @@ class AppointmentController {
         });
 
         return res.json(appointments);
+    }
+    async updateStatus (req, res){
+       const { id } = req.params;
+
+       try{
+       const updateStatus = await prismaClient.Appointments.update({
+        where: {
+          id,
+        },
+        data: {
+          status: true,
+        },
+      })
+    } 
+    catch (e){
+        return res.json(e.meta.cause)
+    }
+      return res.json(updateStatus)
+    }
+
+    async deleteAppointment (req, res){
+        const { id } = req.params;
+        
+        try{
+        const deletedAppointment = await prismaClient.Appointments.delete({
+            where: {
+              id
+            },
+          })
+        }
+        catch (e){
+            return res.json(e.meta.cause)
+        }
+        return res.json(deletedAppointment)
     }
 }
 
