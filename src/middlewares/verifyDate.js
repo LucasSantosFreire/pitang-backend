@@ -26,12 +26,12 @@ export const verifyDate = async (req, res, next) => {
     }
     if (HasSpotOnDay == 20) {
         return res.status(409).json({
-            "message": "este dia está lotado"
+            "message": "Este dia está lotado"
         })
     }
     if (hasSpotOnHour == 2) {
         return res.status(409).json({
-            "message": "este horário está lotado"
+            "message": "Este horário está lotado"
         })
     }
     next();
