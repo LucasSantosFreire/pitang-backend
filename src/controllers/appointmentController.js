@@ -20,11 +20,11 @@ class AppointmentController {
                 appointmentDate
             }
         })
+        return res.json(Appointment);
       }catch(error){
         console.log(error.meta.cause)
         return res.status(400).json({"message" : "Ocorreu uma falha no agendamento!"})
       }
-        return res.json(Appointment);
     }
     
 
@@ -42,11 +42,11 @@ class AppointmentController {
                 appointmentDate: "asc"
             },
         });
+        return res.json(appointments);
       }catch(error){
         console.log(error.meta.cause)
         return res.status(404).json({"message" : "Ocorreu uma falha na busca!"})
       }
-        return res.json(appointments);
     }
 
 
