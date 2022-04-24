@@ -15,6 +15,7 @@ model Appointments{
   name String
   birthdate DateTime
   appointmentDate DateTime
+  status Boolean? @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
